@@ -16,10 +16,13 @@ namespace BlogApp.Data.Concrete.EfCore
         {
             _context = context;
         }
-        public IQueryable<Post> Posts => _context.Posts;
+        public IQueryable<Post> Posts => _context.Posts; // => ten sonrası get; kısmı. Filtreleme buradan yapılır.
+
+        // _context.Posts bize BlogContext'e ait Posts tablosu listesindeki verileri gösterir. IQueryable<Post> Posts ise Dışarıdan bu listeyi çağırmak istediğimizde ve üzerinde sorgulama, listeleme yapmak istediğimizde kullanıyoruz.
 
         public void CreatePost(Post post)
         {
+
             _context.Posts.Add(post);
             _context.SaveChanges();
         }
