@@ -9,25 +9,37 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BlogApp
 build_property.RootNamespace = BlogApp
-build_property.ProjectDir = /Users/erkin/Desktop/BlogApp/
+build_property.ProjectDir = C:\Users\BRIGHT\Documents\GitHub\BlogApp\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/erkin/Desktop/BlogApp
+build_property.MSBuildProjectDirectory = C:\Users\BRIGHT\Documents\GitHub\BlogApp
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/erkin/Desktop/BlogApp/Views/Posts/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUG9zdHMvSW5kZXguY3NodG1s
+[C:/Users/BRIGHT/Documents/GitHub/BlogApp/Views/Posts/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/erkin/Desktop/BlogApp/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+[C:/Users/BRIGHT/Documents/GitHub/BlogApp/Views/Posts/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/erkin/Desktop/BlogApp/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[C:/Users/BRIGHT/Documents/GitHub/BlogApp/Views/Shared/Components/PostsMenu/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUG9zdHNNZW51XERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/erkin/Desktop/BlogApp/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Users/BRIGHT/Documents/GitHub/BlogApp/Views/Shared/Components/TagsMenu/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcVGFnc01lbnVcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BRIGHT/Documents/GitHub/BlogApp/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BRIGHT/Documents/GitHub/BlogApp/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/BRIGHT/Documents/GitHub/BlogApp/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

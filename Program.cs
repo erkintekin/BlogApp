@@ -1,4 +1,5 @@
 using BlogApp;
+using BlogApp.Controllers;
 using BlogApp.Data.Abstract;
 using BlogApp.Data.Concrete.EfCore;
 using Microsoft.EntityFrameworkCore;
@@ -23,5 +24,25 @@ app.UseStaticFiles();
 SeedData.TestVerileriniDoldur(app);
 
 // app.MapGet("/", () => "Hello World!");
-app.MapDefaultControllerRoute();
+
+
+// url yolalrsak buraya girer
+app.MapControllerRoute(
+    name: "post_details",
+    pattern: "posts/{url}",
+    defaults: new { controller = "Posts", action = "Details" }
+);
+app.MapControllerRoute(
+    name: "posts_by_tag",
+    pattern: "posts/tag/{tag}",
+    defaults: new { controller = "Posts", action = "Index" }
+);
+
+// app.MapDefaultControllerRoute();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Posts}/{action=Index}/{id?}"
+);
+
+
 app.Run();
