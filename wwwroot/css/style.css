@@ -9,3 +9,8 @@ a{
 ul{
     list-style-type: none;
 }
+
+.avatar{
+    width: 3rem;
+    height: 3rem;
+}

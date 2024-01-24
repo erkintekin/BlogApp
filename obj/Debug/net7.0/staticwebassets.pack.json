@@ -17,6 +17,18 @@
       "PackagePath": "staticwebassets\\img\\3.jpg"
     },
     {
+      "Id": "C:\\Users\\BRIGHT\\Documents\\GitHub\\BlogApp\\wwwroot\\img\\doge-profile.jpg",
+      "PackagePath": "staticwebassets\\img\\doge-profile.jpg"
+    },
+    {
+      "Id": "C:\\Users\\BRIGHT\\Documents\\GitHub\\BlogApp\\wwwroot\\img\\profile-img.jpg",
+      "PackagePath": "staticwebassets\\img\\profile-img.jpg"
+    },
+    {
+      "Id": "C:\\Users\\BRIGHT\\Documents\\GitHub\\BlogApp\\wwwroot\\img\\profile-img2.jpg",
+      "PackagePath": "staticwebassets\\img\\profile-img2.jpg"
+    },
+    {
       "Id": "C:\\Users\\BRIGHT\\Documents\\GitHub\\BlogApp\\wwwroot\\lib\\bootstrap\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\css\\bootstrap-grid.css"
     },
