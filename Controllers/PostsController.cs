@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using BlogApp.Data.Abstract;
 using BlogApp.Entity;
@@ -64,20 +65,23 @@ namespace BlogApp.Controllers
         [HttpPost]
         public JsonResult AddComment(int PostId, string UserName, string Text)
         {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var username = User.FindFirstValue(ClaimTypes.Name);  // Username için Claimtype methodu
+            var avatar = User.FindFirstValue(ClaimTypes.UserData); // Kullanıcı verileri için img vb.
             var entity = new Comment
             {
                 Text = Text,
                 PublishedOn = DateTime.Now,
                 PostId = PostId,
-                User = new User { UserName = UserName, Image = "profile-img.jpg" }
+                UserId = int.Parse(userId ?? "")
             };
             _commentRepository.CreateComment(entity);
             return Json(new
             {
-                UserName,
+                username,
                 Text,
                 entity.PublishedOn,
-                entity.User.Image
+                avatar
             });
         }
     }

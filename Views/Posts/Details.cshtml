@@ -35,17 +35,14 @@
                                 </div>
                             }
                         </div>
-                       
+                        @if(User.Identity.IsAuthenticated)
+                       {
                         <hr class="my-4">
                         <div>
                             <h4>Yorum Ekle</h4>
                             <form action="/posts/AddComment" method="post">
                                 <input id="PostId" type="hidden" name="PostId" value="@Model.PostId">
-                                
-                                <div class="mb-3">
-                                    <label for="UserName" class="form-label">UserName</label>
-                                    <input  type="text" name="UserName" id="UserName" class="form-control">
-                                </div>
+
                                 <div class="mb-3">
                                     <label for="Text" class="form-label">Yorum</label>
                                     <textarea type="text" name="Text" id="Text" cols="3" class="form-control"></textarea>
@@ -55,6 +52,10 @@
                                 </div>
                             </form>
                         </div>
+                    }else
+                    {
+                        <p> <em> Yorum yapabilmek için giriş yapınız </em> <a href="/users/login">Login</a></p>
+                    }
                     </div>
                 </div>
             </div>
@@ -87,10 +88,10 @@
                     // console.log(yorum);
                     $("#comments").append(`
                     <div class="my-4 d-flex">
-                                    <img src="/img/${yorum.image}" alt="" class="rounded-circle float-start me-3 avatar">
+                                    <img src="/img/${yorum.avatar}" alt="" class="rounded-circle float-start me-3 avatar">
                                     <div>
                                         <div class="mb-2 d-flex">
-                                            <h6 class="me-2">${yorum.userName}</h6>
+                                            <h6 class="me-2">${yorum.username}</h6>
                                             <small>${date.toLocaleDateString}</small>
                                         </div>
                                         <p>${yorum.text}</p>
