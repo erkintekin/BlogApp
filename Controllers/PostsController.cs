@@ -31,6 +31,7 @@ namespace BlogApp.Controllers
 
         public IActionResult Index(string tag)
         {
+            var claims = User.Claims;
             var posts = _postRepository.Posts; // IEnumerable şeklinde.
 
             if (!String.IsNullOrEmpty(tag))

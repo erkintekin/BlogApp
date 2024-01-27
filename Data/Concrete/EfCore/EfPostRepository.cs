@@ -20,10 +20,10 @@ namespace BlogApp.Data.Concrete.EfCore
 
         // _context.Posts bize BlogContext'e ait Posts tablosu listesindeki verileri gösterir. IQueryable<Post> Posts ise Dışarıdan bu listeyi çağırmak istediğimizde ve üzerinde sorgulama, listeleme yapmak istediğimizde kullanıyoruz.
 
-        public void CreatePost(Post post)
+        public void CreatePost(Post Post)
         {
 
-            _context.Posts.Add(post);
+            _context.Posts.Add(Post);
             _context.SaveChanges();
         }
     }

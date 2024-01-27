@@ -32,11 +32,12 @@ public class SeedData
             if (!context.Users.Any())
             {
                 context.Users.AddRange(
-                    new User { UserName = "bciga", Image = "profile-img2.jpg" },
-                    new User { UserName = "erkin", Image = "doge-profile.jpg" }
+                    new User { UserName = "bciga", Image = "profile-img2.jpg", Name = "Barbaros Ciga", Email = "bciga@bc.com", Password = "123456" },
+                    new User { UserName = "erkin", Image = "doge-profile.jpg", Name = "Erkin Tekin", Email = "et@et.com", Password = "098766" }
                 );
                 context.SaveChanges();
             }
+
             if (!context.Posts.Any())
             {
                 // Tag'te data yoksa
