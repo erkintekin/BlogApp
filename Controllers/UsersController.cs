@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using BlogApp.Data.Abstract;
+using BlogApp.Entity;
 using BlogApp.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -18,8 +19,8 @@ namespace BlogApp.Controllers
 
     public class UsersController : Controller
     {
-        private readonly IUserRepository _userRepository;
-        public UsersController(IUserRepository userRepository)
+        private readonly IRepository<User> _userRepository;
+        public UsersController(IRepository<User> userRepository)
         {
             _userRepository = userRepository;
 
@@ -45,7 +46,7 @@ namespace BlogApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var isUser = _userRepository.Users.FirstOrDefault(u => u.Email == model.Email && u.Password == model.Password);
+                var isUser = _userRepository.List.FirstOrDefault(u => u.Email == model.Email && u.Password == model.Password);
 
                 if (isUser != null)
                 {
@@ -95,11 +96,11 @@ namespace BlogApp.Controllers
         [HttpPost]
         public async Task<IActionResult> RegisterAsync(RegisterViewModel model)
         {
-            var user = await _userRepository.Users.FirstOrDefaultAsync(x => x.UserName == model.UserName || x.Email == model.Email);
+            var user = await _userRepository.List.FirstOrDefaultAsync(x => x.UserName == model.UserName || x.Email == model.Email);
 
             if (user == null)
             {
-                _userRepository.CreateUser(new Entity.User
+                _userRepository.Create(new Entity.User
                 {
                     UserName = model.UserName,
                     Name = model.Name,

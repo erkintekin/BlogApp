@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BlogApp.Data.Abstract;
+using BlogApp.Entity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,9 +11,9 @@ namespace BlogApp.ViewComponents
 {
     public class PostsMenu : ViewComponent
     {
-        private readonly IPostRepository _postrepository;
+        private readonly IRepository<Post> _postrepository;
 
-        public PostsMenu(IPostRepository postrepository)
+        public PostsMenu(IRepository<Post> postrepository)
         {
             _postrepository = postrepository;
         }
@@ -21,7 +22,7 @@ namespace BlogApp.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View(await _postrepository.Posts.OrderByDescending(x => x.PublishedOn).Take(5).ToListAsync());
+            return View(await _postrepository.List.OrderByDescending(x => x.PublishedOn).Take(5).ToListAsync());
         }
     }
 }

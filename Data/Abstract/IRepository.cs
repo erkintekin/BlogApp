@@ -6,9 +6,9 @@ using BlogApp.Entity;
 
 namespace BlogApp.Data.Abstract
 {
-    public interface ITagRepository
+    public interface IRepository<T>
     {
-        IQueryable<Tag> Tags { get; }
-        void CreateTag(Tag tag);   // İmzalar bunlar
+        IQueryable<T> List { get; }
+        void Create(T p);   // İmzalar bunlar
     }
 }

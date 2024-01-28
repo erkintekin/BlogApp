@@ -2,6 +2,7 @@ using BlogApp;
 using BlogApp.Controllers;
 using BlogApp.Data.Abstract;
 using BlogApp.Data.Concrete.EfCore;
+using BlogApp.Entity;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,10 +17,11 @@ builder.Services.AddDbContext<BlogContext>(options =>
     options.UseSqlite(connectionString);
 });
 // Desing Pattern- Repository Design Pattern
-builder.Services.AddScoped<IPostRepository, EfPostRepository>();
-builder.Services.AddScoped<ITagRepository, EfTagRepository>();  // Alan sağlar döngü için (abs. ,concrete)
-builder.Services.AddScoped<ICommentRepository, EfCommentRepository>();
-builder.Services.AddScoped<IUserRepository, EfUserRepository>();
+
+builder.Services.AddScoped<IRepository<Post>, EfRepository<Post>>();
+builder.Services.AddScoped<IRepository<Tag>, EfRepository<Tag>>();  // Alan sağlar döngü için (abs. ,concrete)
+builder.Services.AddScoped<IRepository<Comment>, EfRepository<Comment>>();
+builder.Services.AddScoped<IRepository<User>, EfRepository<User>>();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 

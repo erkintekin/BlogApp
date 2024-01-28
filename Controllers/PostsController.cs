@@ -18,11 +18,11 @@ namespace BlogApp.Controllers
 
     public class PostsController : Controller
     {
-        private readonly IPostRepository _postRepository;
-        private readonly ITagRepository _tagRepository;
-        private readonly ICommentRepository _commentRepository;
+        private readonly IRepository<Post> _postRepository;
+        private readonly IRepository<Tag> _tagRepository;
+        private readonly IRepository<Comment> _commentRepository;
 
-        public PostsController(IPostRepository postRepository, ITagRepository tagRepository, ICommentRepository commentRepository)
+        public PostsController(IRepository<Post> postRepository, IRepository<Tag> tagRepository, IRepository<Comment> commentRepository)
         {
             _postRepository = postRepository;
             _tagRepository = tagRepository;
@@ -33,7 +33,7 @@ namespace BlogApp.Controllers
         public IActionResult Index(string tag)
         {
             var claims = User.Claims;
-            var posts = _postRepository.Posts; // IEnumerable şeklinde.
+            var posts = _postRepository.List; // IEnumerable şeklinde.
 
             if (!String.IsNullOrEmpty(tag))
             {
@@ -59,7 +59,7 @@ namespace BlogApp.Controllers
         public async Task<IActionResult> Details(string? url)
         {
             return View(await _postRepository
-            .Posts.Include(x => x.Tags).Include(x => x.Comments).ThenInclude(x => x.User)
+            .List.Include(x => x.Tags).Include(x => x.Comments).ThenInclude(x => x.User)
             .FirstOrDefaultAsync(p => p.Url == url));
         }
         [HttpPost]
@@ -75,7 +75,7 @@ namespace BlogApp.Controllers
                 PostId = PostId,
                 UserId = int.Parse(userId ?? "")
             };
-            _commentRepository.CreateComment(entity);
+            _commentRepository.Create(entity);
             return Json(new
             {
                 username,
